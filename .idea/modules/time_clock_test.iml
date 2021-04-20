@@ -10,6 +10,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="time_clock_main" />
     <orderEntry type="library" name="Gradle: org.scalatest:scalatest_2.12:3.2.7" level="project" />
+    <orderEntry type="library" name="Gradle: org.scalamock:scalamock_2.12:5.1.0" level="project" />
     <orderEntry type="library" name="Gradle: org.scalatest:scalatest-featurespec_2.12:3.2.7" level="project" />
     <orderEntry type="library" name="Gradle: org.scalatest:scalatest-flatspec_2.12:3.2.7" level="project" />
     <orderEntry type="library" name="Gradle: org.scalatest:scalatest-freespec_2.12:3.2.7" level="project" />
