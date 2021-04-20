@@ -3,9 +3,9 @@ package reports
 import java.time.LocalDateTime
 
 import DAL.DB
-import java.time.temporal.ChronoUnit.MINUTES
+import java.time.temporal.ChronoUnit.SECONDS
 
-import entities.Employee
+import entities.{Day, Employee, Month, Report}
 
 
 object Reporter {
@@ -20,7 +20,7 @@ object Reporter {
     val workingHoursPerDay = workingHoursGroupedByDay.map{x => (x._1, sumHoursInDay(x._2))}.toList
     val workingHoursPerMonth = workingHoursGroupedByMonth.map{x => (x._1, sumHoursInMonth(x._2))}.toList
 
-    Report(workingHoursPerDay, workingHoursPerMonth)
+    entities.Report(workingHoursPerDay, workingHoursPerMonth)
   }
 
   def localDateTimeToDay(date: LocalDateTime): Day = {
@@ -37,9 +37,9 @@ object Reporter {
 
   private def calcWorkingHoursPerSession(employee: Employee): List[(Day, Double)] = {
     employee.sessions.filter(_.end.isDefined).map{ session =>
-      val minutesInSession = MINUTES.between(session.start, session.end.get)
+      val minutesInSession = SECONDS.between(session.start, session.end.get)
 
-      val hoursInSession = (minutesInSession.toDouble / 60)
+      val hoursInSession = (minutesInSession.toDouble / 60 / 60)
       (localDateTimeToDay(session.start), hoursInSession)
     }
   }

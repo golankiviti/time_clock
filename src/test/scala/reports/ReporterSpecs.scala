@@ -3,7 +3,7 @@ package reports
 import java.time.LocalDateTime
 
 import DAL.InMemoryDB
-import entities.{Employee, Session}
+import entities.{Employee, Month, Session}
 import exceptions.EmployeeDoesNotExists
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.must.Matchers
